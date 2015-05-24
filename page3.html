@@ -100,15 +100,10 @@
                         </p>
                         <script src="https://gist.github.com/swanyriver/8b7ec19fecfbd24b45f0.js"></script>
 
-                        <p>
-                        quick note on repository urls,  If you have set up an SSH key on your machine and registered it with your github account then you can use the the <code>ssh_url</code>, otherwise use the <code>clone_url</code> field in the print statement to retrieve the appropriate URL for your needs.
-                        </p><p>
-
-                        It would of course have been possible to parse the url manually as it follows a pattern of either 
-                        <code>https://github.com/USERNAME/REPONAME.git</code> or 
-                        <code>git@github.com:USERNAME/REPONAME.git</code>
-                        but this way we do not have to manually perform the url sanitization of the repository name such as replacing the spaces in “my first repo” with dashes <code>/my-first-repo.git</code>.
-                        </p>
+                        <p class="bg-info"><em>
+                        If you have set up an SSH key on your machine and registered it with your github account then you can use the <code>ssh_url</code> key to get a url in the form <code>git@github.com:USERNAME/REPONAME.git</code>, otherwise use the <code>clone_url</code> key to retrieve a url in the form <code>https://github.com/USERNAME/REPONAME.git</code>
+                        <br><br>Use one of these keys in the print statement to retrieve the appropriate URL for your needs.
+                        </em></p>
 
                         <nav>
                             <ul class="pager">

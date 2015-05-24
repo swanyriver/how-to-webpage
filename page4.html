@@ -100,9 +100,9 @@
                         <br>git push -u origin master
                         </code>
                         <br>
-                        <p>
-                        note the set -e command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
-                        </p>
+                        <br><p class="bg-info"><em>
+                        The set -e command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
+                        </em></p>
 
                         <p>
                         Now lets put all of these pieces together into a little Bash script that will allow us to create a Github repository and set it up as a remote for our local repository with just a few keystrokes.
