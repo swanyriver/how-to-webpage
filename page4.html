@@ -68,34 +68,44 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
+                        <p>
                         Now that we are able to parse fields from the returned we can display the error messages returned from Github servers, or even better, automatically set up our local git repository to be able to push and pull changes from the newly created remote repository.  A simple version follows below that will set up the remote and push committed changes.
-
+                        </p>
+                        <code><br>
                         if [[ $htresp == 201 ]] ; then
-                          echo "created github repo: $1"
-                          cloneurl=$(geturl)
-                          git remote add origin $cloneurl
-                          git push -u origin master
-                          rm .jsongit
-                          exit 0
-
+                        <br>  echo "created github repo: $1"
+                        <br>  cloneurl=$(geturl)
+                        <br>  git remote add origin $cloneurl
+                        <br>  git push -u origin master
+                        <br>  rm .jsongit
+                        <br>  exit 0
+                        </code>
+                        <p>
                         More can be added if you want to automate creation of the local git repo, adding all the files in the directory that aren’t in the .gitignore, and creating and pushing a first commit.  I use a script that includes all these and takes the commit message as an optional third argument like so
-
+                        </p>
+                        <code><br>
                         if [[ ! $3 ]] ; then
-                          commitmsg="first commit"
-                        else
-                          commitmsg=$3
-                        fi
-                        cloneurl=$(geturl)
-                        set -e
-                        git init
-                        git add -A :/
-                        git commit -m "$commitmsg"
-                        git remote add origin $cloneurl
-                        git push -u origin master
+                        <br>  commitmsg="first commit"
+                        <br>else
+                        <br>  commitmsg=$3
+                        <br>fi
+                        <br>cloneurl=$(geturl)
+                        <br>set -e
+                        <br>git init
+                        <br>git add -A :/
+                        <br>git commit -m "$commitmsg"
+                        <br>git remote add origin $cloneurl
+                        <br>git push -u origin master
+                        </code>
 
+                        <p>
                         note the set -e command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
+                        </p>
 
+                        <p>
                         Now lets put all of these pieces together into a little Bash script that will allow us to create a Github repository and set it up as a remote for our local repository with just a few keystrokes.
+                        </p>
+                        <script src="https://gist.github.com/swanyriver/1eb53f7762402646ebe7.js"></script>
  
                     </div>
                 </div>

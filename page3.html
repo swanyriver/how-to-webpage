@@ -77,7 +77,7 @@
                         that can be used for this, but I want this script to not have dependencies so that it can be very portable.  There was also the possibility of using grep and some complicated regex to parse out values from keys, but this doesn't help later when building scripts that deal with lists of  JSON objects of the same type.   So because Python is fairly ubiquitous and easy to embed within bash scripts I chose to use it for parsing the information returned from Github.
                         </p><p>
                         First off we will will change the curl request to output to a file for us to parse later
-                        <code>htresp=$(curl --write-out %{http_code} --output .gitjson -u "$auth" $url -d "$json" )</code>
+                        <br><code>htresp=$(curl --write-out %{http_code} --output .gitjson -u "$auth" $url -d "$json" )</code>
                         </p><p>
                         to launch python within our bash script we will simply invoke it with a heredoc and place python scripts within
                         <br><code>python &lt;&lt;END_OF_PYTHON
