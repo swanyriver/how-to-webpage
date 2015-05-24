@@ -71,14 +71,14 @@
                         <p>
                         Now that we are comfortable making curl calls to the Github server and parsing the returned JSON strings we can automate even more parts of the the Github workflow.  Another part of using Github that involves a little bit of searching around on the website and then copy pasting an address is cloning a project.  If you want to speed up pulling down your projects across different computers you can write a little script to retrieve the URL for you.
                         </p><p>
-                        To do this we will make use of the search api to search repositories
+                        To do this we will make use of the search API to search repositories
                         <br><a href ="https://developer.github.com/v3/search/#search-repositories"> Github Search API Documentation</a></p>
 
                         <code>
                         https://api.github.com/search/repositories?q=”QUERY”+user:USERNAME&amp;sort=updated</code>
 
                         <p>
-                        The above api call will return all the repositories matching QUERY by the the user specified by USERNAME,  or if the query is left blank all of the repositories by that user.  In either case they will be sorted with the most recently updated appearing first.
+                        The above API call will return all the repositories matching QUERY by the the user specified by USERNAME,  or if the query is left blank all of the repositories by that user.  In either case they will be sorted with the most recently updated appearing first.
                         </p><p>
                         With this search url and a little bit of JSON parsing we can easily create a script to allow us to quickly clone a repository by choosing from a list of our most recently updated repositories or from top search results.
                         </p>

@@ -83,7 +83,7 @@
                         </code>
                         <br><br>
                         <p>
-                        More can be added if you want to automate creation of the local git repo, adding all the files in the directory that aren’t in the .gitignore, and creating and pushing a first commit.  I use a script that includes all these and takes the commit message as an optional third argument like so
+                        More can be added if you want to automate creation of the local git repo, adding all the files in the directory that aren’t in your <code>.gitignore</code>, and creating and pushing a first commit.  I use a script that includes all these and takes the commit message as an optional third argument like so
                         </p>
                         <code>
                         if [[ ! $3 ]] ; then
@@ -101,7 +101,7 @@
                         </code>
                         <br>
                         <br><p class="bg-info"><em>
-                        The set -e command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
+                        The <code>set -e</code> command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
                         </em></p>
 
                         <p>

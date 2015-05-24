@@ -71,9 +71,9 @@
                         <p>
                         Before we continue automating git repository creation we are going to want to be able to tell if our curl calls were successful.  That way we will be able to branch on this and display an error message if it was unsuccessful or perform more operations like setting up our local git to track changes from the remote if it was successfully created.
                         </p><p>
-                        The curl call will return an exit status but what we are more interested in is the HTTP code returned from the github server.  To store this code in a Bash variable we will use command substitution, allowing the normally printed output of our command to be stored in a variable. and that takes the form <code>$(OUR CURL CALL)</code>.  We will set the output to be only the http response code by setting the <code>--write-out</code> flag to http_code,  but we will also need to redirect the returned JSON data using the <code>--output</code> flag.  This can be stored in file for later retrieval but for now we will send it to /dev/null
+                        The curl call will return an exit status but what we are more interested in is the HTTP status code returned from the Github server.  To store this code in a Bash variable we will use command substitution, allowing the normally printed output of our command to be stored in a variable. and that takes the form <code>Our_Varialbe=$(OUR CURL CALL)</code>.  We will set the output to be only the http status code by setting the <code>--write-out</code> flag to http_code,  but we will also need to redirect the returned JSON data using the <code>--output</code> flag.  This can be stored in file for later retrieval but for now we will send it to <code>/dev/null</code>
                         </p><p>
-                        by defining a few variables ahead of time and using command line arguments to fill in the name and description of our new repository we have our new curl call:
+                        By defining a few variables ahead of time and using command line arguments to fill in the name and description of our new repository we have our new curl call:
                         <br>
                         <code>
                         auth=$(USERNAME:PASSWORD) <br>
@@ -83,7 +83,7 @@
                         </code>
                         </p>
                         <p>
-                        There are a number ways for the curl call to go wrong. Such as bad authentication, or a repository with the submitted name already exists.  We will later return to this and output a more helpful message to the user but for now lets work on recognizing when it’s successful.  Unlike when making traditional AJAX calls and checking for response code 200 this time we are interested in response code 201 for asset created.
+                        There are a number ways for the curl call to go wrong. Such as bad authentication, or a repository with the submitted name already exists.  We will later return to this and output a more helpful message to the user but for now lets work on recognizing when it’s successful.  Unlike when making traditional AJAX calls and checking for status code 200 this time we are interested in status code 201 for asset created.
                         </p><p>
                         now we have a very rudimentary script that can take the name and description as arguments, create a JSON string for a new repository, make a curl call to the Github sever, and notify us via the response code if it was successful.
                         </p><br>
