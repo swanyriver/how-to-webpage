@@ -63,9 +63,53 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+                <div class="jumbotron">
+                    <h1>Parsing the Returned JSON Information</h1>
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- MY CONTENT HERE -->
+                        <p>
+                        Now to make better use of the information given to us by the github server we will need to parse the JSON response.  If our repository wasn’t created there will be a descriptive error message in addition to just the response code.  And if it was created what will be returned is  a JSON string with all the information about our new repository including the url we can use for tracking the remote repository.  
+                        </p><p>
+                        Unfortunately there is not a built in JSON parsing utility in Bash so we will need to use some extra tools to extract the information.  I considered a few options for this and settled on using Python.  There are many downloadable tools out there like
+                        http://stedolan.github.io/jq/download/
+                        http://github.com/micha/jsawk
+                        that can be used for this, but I want this script to not have dependencies so that it can be very portable.  There was also the possibility of using grep and some complicated regex to parse out values from keys, but this doesn't help later when building scripts that deal with lists of  JSON objects of the same type.   So because Python is fairly ubiquitous and easy to embed within bash scripts I chose to use it for parsing the information returned from Github.
+                        </p><p>
+                        First off we will will change the curl request to output to a file for us to parse later
+                        <code>htresp=$(curl --write-out %{http_code} --output .gitjson -u "$auth" $url -d "$json" )</code>
+                        </p><p>
+                        to launch python within our bash script we will simply invoke it with a heredoc and place python scripts within
+                        <br><code>python &lt;&lt;END_OF_PYTHON
+                        <br>#
+                        <br>#python code here
+                        <br>#
+                        <br>END_OF_PYTHON
+                        </code></p><p>
+
+
+                        now we will import json and create a json object from the file we sent the curl output to
+                        <br><code>
+                        python &lt;&lt;END_OF_PYTHON
+                        <br>import json  
+                        <br>response = json.load(open('.jsongit'))
+                        <br>END_OF_PYTHON
+                        </code></p><p>
+
+                        now if we wrap this in a function and use command substitution we can assign a printed value from the JSON string to a bash variable.
+                        </p>
+                        <script src="https://gist.github.com/swanyriver/8b7ec19fecfbd24b45f0.js"></script>
+
+                        <p>
+                        quick note on repository urls,  If you have set up an SSH key on your machine and registered it with your github account then you can use the the <code>ssh_url</code>, otherwise use the <code>clone_url</code> field in the print statement to retrieve the appropriate URL for your needs.
+                        </p><p>
+
+                        It would of course have been possible to parse the url manually as it follows a pattern of either 
+                        <code>https://github.com/USERNAME/REPONAME.git</code> or 
+                        <code>git@github.com:USERNAME/REPONAME.git</code>
+                        but this way we do not have to manually perform the url sanitization of the repository name such as replacing the spaces in “my first repo” with dashes <code>/my-first-repo.git</code>.
+                        </p>
+ 
                     </div>
                 </div>
             </div>
