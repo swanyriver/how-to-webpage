@@ -53,7 +53,7 @@
                 <li>
                     <a href="page5.html">Taking it Further</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="page6.html">Make it Your Own</a>
                 </li>
             </ul>
@@ -63,9 +63,29 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+                <div class="jumbotron">
+                    <h1>Make It Your Own</h1>
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- MY CONTENT HERE -->
+                        <p>
+                        To use these scripts for yourself the first thing you will need to do is replace the the USERNAME and PASSWORD variables with your own credentials.  If you like you can set them as command arguments or prompt for input for them.  Or if you want to track your changes on a public repository then read them from a file on your local drive like so:
+                        <code>password=$(cat ~/gitpass.txt)</code>.  Another option is the store and retrieve these information in your git config files.
+                        </p><p>
+                        After that there are many improvements or personalizations you can make to these scripts:
+                        <br>
+                        <ul class="list-unstyled">
+                        <ul>
+                        <li>set up the auto clone to be able to search other users repositories as well as your own
+                        <li>a flag that will cause the script to clone your most recently updated repository without prompting
+                        <li>add the <code>--silent</code> flag to the curl calls to suppress the upload/download bytes and time dialog if you find it annoying.
+                        <li>add more initialization activity on a successful remote repository creation.
+                        <li>automate another part of your git/Github workflow
+                        </ul></ul></p>
+
+                        {download links}
+                        <p>
+                        start tracking your changes to these now by downloading the above files, inserting your credentials, and run the gitcreate script and you will have a Github tracked repository ready to go.</p>
                     </div>
                 </div>
             </div>

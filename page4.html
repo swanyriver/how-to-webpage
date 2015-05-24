@@ -73,21 +73,23 @@
                         </p>
                         <code><br>
                         if [[ $htresp == 201 ]] ; then
-                        <br>  echo "created github repo: $1"
-                        <br>  cloneurl=$(geturl)
-                        <br>  git remote add origin $cloneurl
-                        <br>  git push -u origin master
-                        <br>  rm .jsongit
-                        <br>  exit 0
+                        <br>&nbsp;&nbsp;echo "created github repo: $1"
+                        <br>&nbsp;&nbsp;cloneurl=$(geturl)
+                        <br>&nbsp;&nbsp;git remote add origin $cloneurl
+                        <br>&nbsp;&nbsp;git push -u origin master
+                        <br>&nbsp;&nbsp;rm .jsongit
+                        <br>&nbsp;&nbsp;exit 0
+                        <br>fi
                         </code>
+                        <br><br>
                         <p>
                         More can be added if you want to automate creation of the local git repo, adding all the files in the directory that aren’t in the .gitignore, and creating and pushing a first commit.  I use a script that includes all these and takes the commit message as an optional third argument like so
                         </p>
-                        <code><br>
+                        <code>
                         if [[ ! $3 ]] ; then
-                        <br>  commitmsg="first commit"
+                        <br>&nbsp;&nbsp;commitmsg="first commit"
                         <br>else
-                        <br>  commitmsg=$3
+                        <br>&nbsp;&nbsp;commitmsg=$3
                         <br>fi
                         <br>cloneurl=$(geturl)
                         <br>set -e
@@ -97,7 +99,7 @@
                         <br>git remote add origin $cloneurl
                         <br>git push -u origin master
                         </code>
-
+                        <br>
                         <p>
                         note the set -e command,  this will cause the sript to exit if any subsequent commands return an error,  a good idea when chaining git commands like this,  if the git init fails or the commit isn’t successful, then you won’t want the subsequent push to continue.
                         </p>
