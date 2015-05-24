@@ -63,9 +63,25 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+                <div class="jumbotron">
+                    <h1>Basic Curl Calls to api.github.com</h1>
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- MY CONTENT HERE -->
+                        <p>
+                        the <a href="https://developer.github.com/v3/repos/#create">Github documentation</a> for creating a new repository gives us the line “POST /user/repos” and then defines a structure for the JSON string to be attached in the header.  Many of the fields have default boolean values and the only strictly necessary field is “name”
+                        </p><p>
+                        an example JSON string for creating a new repo would be
+                         <br> <code>“{“name”:”my new repository”,”description”:”this is my new github repo”}”</code>
+                        </p><p>
+                        to attach this to the header of our HTTPS call we will use the -d flag (short for data).  so putting together this JSON string, the required user credentials,  and the provided url a simple curl call to create a new repository would be as follows (with your own credentials substituted for USERNAME:PASSWORD):
+                        </p><p>
+                        <code>curl -u "USERNAME:PASSWORD" https://api.github.com/user/repos -d '{"name":"my new repository","description":"this is my new github repo"}'</code>
+
+                        </p><p>
+                        This will suffice to create a new repository on the github servers and will output the returned JSON string with information about the newly created.  But this is hardly a time saver to type out API URLs and JSON strings by hand every time.  In the next section we will cover automating this process with a small bash script and retrieving information like the url for the newly created repository from the returned JSON
+                        </p>
                     </div>
                 </div>
             </div>
