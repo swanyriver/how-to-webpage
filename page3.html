@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <p>
-                        Now to make better use of the information given to us by the github server we will need to parse the JSON response.  If our repository wasn’t created there will be a descriptive error message in addition to just the response code.  And if it was created what will be returned is  a JSON string with all the information about our new repository including the url we can use for tracking the remote repository.  
+                        Now to make better use of the information given to us by the Github server we will need to parse the JSON response.  If our repository wasn’t created there will be a descriptive error message in addition to just the response code.  And if it was created what will be returned is  a JSON string with all the information about our new repository including the URL we can use for tracking the remote repository.  
                         </p><p>
                         Unfortunately there is not a built in JSON parsing utility in Bash so we will need to use some extra tools to extract the information.  I considered a few options for this and settled on using Python.  There are many downloadable tools out there like
                         <a href="http://stedolan.github.io/jq/download/">JQ</a> or
@@ -101,7 +101,7 @@
                         <script src="https://gist.github.com/swanyriver/8b7ec19fecfbd24b45f0.js"></script>
 
                         <p class="bg-info"><em>
-                        If you have set up an SSH key on your machine and registered it with your github account then you can use the <code>ssh_url</code> key to get a url in the form <code>git@github.com:USERNAME/REPONAME.git</code>, otherwise use the <code>clone_url</code> key to retrieve a url in the form <code>https://github.com/USERNAME/REPONAME.git</code>
+                        If you have set up an SSH key on your machine and registered it with your Github account then you can use the <code>ssh_url</code> key to get a URL in the form <code>git@github.com:USERNAME/REPONAME.git</code>, otherwise use the <code>clone_url</code> key to retrieve a URL in the form <code>https://github.com/USERNAME/REPONAME.git</code>
                         <br><br>Use one of these keys in the print statement to retrieve the appropriate URL for your needs.
                         </em></p>
 

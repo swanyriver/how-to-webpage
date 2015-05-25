@@ -76,7 +76,7 @@
                         By defining a few variables ahead of time and using command line arguments to fill in the name and description of our new repository we have our new curl call:
                         <br>
                         <code>
-                        auth=$(USERNAME:PASSWORD) <br>
+                        auth="USERNAME:PASSWORD" <br>
                         json="{\"name\":\"$1\", \"description\":\"$2\"}" <br>
                         url="https://api.github.com/user/repos" <br>
                         htresp=$(curl --write-out %{http_code} --output /dev/null -u "$auth" $url -d "$json" )
@@ -85,7 +85,7 @@
                         <p>
                         There are a number ways for the curl call to go wrong. Such as bad authentication, or a repository with the submitted name already exists.  We will later return to this and output a more helpful message to the user but for now lets work on recognizing when it’s successful.  Unlike when making traditional AJAX calls and checking for status code 200 this time we are interested in status code 201 for asset created.
                         </p><p>
-                        now we have a very rudimentary script that can take the name and description as arguments, create a JSON string for a new repository, make a curl call to the Github sever, and notify us via the response code if it was successful.
+                        Now we have a very rudimentary script that can take the name and description as arguments, create a JSON string for a new repository, make a curl call to the Github sever, and notify us via the response code if it was successful.
                         </p><br>
 
                         <script src="https://gist.github.com/swanyriver/1d1b19d82854b8985081.js"></script>
