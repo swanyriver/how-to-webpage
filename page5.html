@@ -70,7 +70,16 @@
                     <div class="col-lg-6">
                         <p>
                         Now that we are comfortable making curl calls to the Github server and parsing the returned JSON strings we can automate even more parts of the the Github workflow.  Another part of using Github that involves a little bit of searching around on the website and then copy pasting an address is cloning a project.  If you want to speed up pulling down your projects across different computers you can write a little script to retrieve the URL for you.
-                        </p><p>
+                        </p>
+
+                        <br>
+                        <figure>
+                          <img src="auto-clone-example.png" alt="Example Output">
+                          <figcaption>An example output of the following script run on Github user cs290osu</figcaption>
+                        </figure>
+                        <br>
+
+                        <p>
                         To do this we will make use of the search API to search repositories
                         <br><a href ="https://developer.github.com/v3/search/#search-repositories"> Github Search API Documentation</a></p>
 
@@ -82,6 +91,9 @@
                         </p><p>
                         With this search URL and a little bit of JSON parsing we can easily create a script to allow us to quickly clone a repository by choosing from a list of our most recently updated repositories or from top search results.
                         </p>
+
+                        
+
                         <script src="https://gist.github.com/swanyriver/013dbb9e03e41178559a.js"></script>
                        
                         <nav>
