@@ -23,6 +23,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css"> 
+        .gist .file-data {max-height: 300px;} 
+        h3 {text-align: center;}
+    </style>
 
 </head>
 
@@ -71,26 +75,25 @@
                         <p>
                         To use these scripts for yourself the first thing you will need to do is replace the the USERNAME and PASSWORD variables with your own credentials.  If you like you can set them as command arguments or prompt for input for them.  Or if you want to track your changes on a public repository then read them from a file on your local drive like so:
                         <code>password=$(cat ~/gitpass.txt)</code>.  Another option is the store and retrieve these values in your git config files.
-                        </p><p>
+                        </p>
                         After that there are many improvements or personalizations you can make to these scripts:
                         <br>
                         <ul class="list-unstyled">
-                        <ul>
+                        <li><ul>
                         <li>set up the auto clone to be able to search other users repositories as well as your own
                         <li>Add a flag that will cause the script to clone your most recently updated repository without prompting
                         <li>Add the <code>--silent</code> flag to the curl calls to suppress the Progress Meter if you find it annoying.
                         <li>Add more initialization activity on a successful remote repository creation.
                         <li><b>Automate another part of your git/Github workflow! </b>
-                        </ul></ul></p>
+                        </li></ul></ul>
 
-                        <style type="text/css"> 
-                            .gist .file-data {max-height: 300px;} 
-                            h2 {text-align: center;}
-                        </style>
+                        
                         <div class="row">
-                            <div class="col-lg-6"> <h2><a href="https://gist.githubusercontent.com/swanyriver/1eb53f7762402646ebe7/raw/makeGit.sh">Create Github Repo</a></h2>
+                            <div class="col-lg-6"> 
+                            <h3><a href="https://gist.githubusercontent.com/swanyriver/1eb53f7762402646ebe7/raw/makeGit.sh">Create Github Repo</a></h3>
                             <script src="https://gist.github.com/swanyriver/1eb53f7762402646ebe7.js"></script></div>
-                            <div class="col-lg-6"> <h2><a href="https://gist.githubusercontent.com/swanyriver/013dbb9e03e41178559a/raw/autoclone.sh">Clone Searched Repos</a></h2>
+                            <div class="col-lg-6"> 
+                            <h3><a href="https://gist.githubusercontent.com/swanyriver/013dbb9e03e41178559a/raw/autoclone.sh">Clone Searched Repos</a></h3>
                             <script src="https://gist.github.com/swanyriver/013dbb9e03e41178559a.js"></script></div>
                         </div>
                         <p>
