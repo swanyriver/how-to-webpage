@@ -72,13 +72,13 @@
                     <div class="col-lg-6">
                         <p>Git and Github can be great additions to your toolset when developing your website.  Git is perfect for working on development branches and small changes on the live website at the same time, and Github provides convenient hosting for a remote repository.</p>
 
-                        <p>But for me personally one aspect of using these tools has always left me wanting better.  The git command line utility allows me to quickly pull down changes to a web server, or commit and push from my desktop before grabbing my laptop and leaving.  But when it comes time to make a new repo on Github,  I am out of luck in my terminal.  There comes a time when starting a new project that a few small things have been established and there are whispers of the project taking form and I realize it would be a good time to make a first commit and set up a remote repository.</p>
+                        <p>But for me personally one aspect of using these tools has always left me wanting better.  The git command line utility allows me to quickly pull down changes to a web server, or commit and push from my desktop before grabbing my laptop and leaving.  But when it comes time to make a new repo on Github,  I am out of luck in my terminal.  There comes a time when starting a new project that a few small things have been established and there are whispers of the project taking form and I realize it would be a good time to make a first commit and set up a remote repository.  And it is during this time that I want to avoid "Context-Switching"; I want to remain in my IDE and enter a few commands to set up the terminal</p>
 
                         <p>
                         There are a few Github GUI clients available, although not for linux, and they are often more bulky than necessary.  For your own git remotes repos, like a web server for example, you can use SSH and the git init --bare command to set up an empty repository and then push to it.  But Github doesn’t allow ssh access to its servers,  instead there is an HTTPS protocol for creating repositories using a JSON string in the POST data.
                         </p><p>
 
-                        In this guide I will be using Bash scripts and curl to automate the process of creating a new repository on Github from a local repository,  and Python for parsing important information from the JSON responses from Github.  Then we use those same tools to automate other parts of the Github workflow using scripts I personally created as exampes.
+                        In this guide I will be using Bash scripts and curl to automate the process of creating a new repository on Github from a local repository,  and Python for parsing important information from the JSON responses from Github.  Then we use those same tools to automate other parts of the Github workflow using scripts I personally created as examples.
                         </p>
 
                         <nav>
