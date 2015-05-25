@@ -71,7 +71,7 @@
                         <p>
                         Now to make better use of the information given to us by the Github server we will need to parse the JSON response.  If our repository wasn’t created there will be a descriptive error message in addition to just the response code.  And if it was created what will be returned is  a JSON string with all the information about our new repository including the URL we can use for tracking the remote repository.  
                         </p><p>
-                        Unfortunately there is not a built in JSON parsing utility in Bash so we will need to use some extra tools to extract the information.  There are a number of different methods for achieveing this but for this guide we will be using Python.  There are many downloadable tools out there like
+                        Unfortunately there is not a built in JSON parsing utility in Bash so we will need to use some extra tools to extract the information.  There are a number of different methods for achieving this but for this guide we will be using Python.  There are many downloadable tools out there like
                         <a href="http://stedolan.github.io/jq/download/">JQ</a> or
                         <a href="http://github.com/micha/jsawk">JSAWK </a>
                         that can be used for this, but we want this script to not have dependencies so that it can be very portable.  There was also the possibility of using grep and some complicated regex to parse out values from keys, but this doesn't help later when building scripts that deal with lists of  JSON objects of the same type.   So because Python is fairly ubiquitous and easy to embed within bash scripts I chose to use it for parsing the information returned from Github.
